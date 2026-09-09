@@ -22,7 +22,7 @@ More loops belong here. A loop without a gate is a retry storm.
 ## Install
 
 ```bash
-git clone <this-repo>
+git clone https://github.com/dan1elok/loopkit.git
 cd loopkit
 npm install
 ```
@@ -64,8 +64,8 @@ The education hub lives in [`learn/`](learn/README.md):
 
 ## Status
 
-Local toolkit. Not published to npm yet. The runner, three loops, and
-the learn section are the v0 surface.
+Public v0. Not on npm yet. The runner, three loops, and the learn
+section are the surface.
 
 ## License
 
