@@ -31,7 +31,7 @@ describe("runLoop", () => {
     const cwd = await mkdtemp(path.join(tmpdir(), "loopkit-"));
     const result = await runLoop(loop, null, {
       cwd,
-      agent: "printf 'COMPLETE\\n'",
+      agent: "sh -c 'cat >/dev/null; printf \"COMPLETE\\n\"'",
     });
     assert.equal(result.state.status, "complete");
     assert.equal(result.state.iterations[0]?.accepted, true);

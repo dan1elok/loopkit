@@ -122,7 +122,10 @@ function runAgent(command: string, prompt: string, cwd: string): Promise<{ exitC
     child.on("close", (code) => {
       resolve({ exitCode: code ?? 1, stdout });
     });
-    child.stdin.write(prompt);
-    child.stdin.end();
+    child.stdin.on("error", (error: NodeJS.ErrnoException) => {
+      if (error.code === "EPIPE") return;
+      reject(error);
+    });
+    child.stdin.end(prompt);
   });
 }
