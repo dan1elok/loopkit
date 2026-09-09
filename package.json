@@ -1,0 +1,34 @@
+{
+  "name": "loopkit",
+  "version": "0.1.0",
+  "description": "Vertical agentic loops with verification gates",
+  "type": "module",
+  "bin": {
+    "loopkit": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "loops",
+    "learn"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/cli.ts",
+    "loopkit": "tsx src/cli.ts",
+    "test": "tsx --test src/core/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "yaml": "^2.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}
