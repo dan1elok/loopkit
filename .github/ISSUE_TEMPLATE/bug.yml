@@ -1,0 +1,22 @@
+name: Runner or loop bug
+description: Something the runner or a bundled loop gets wrong
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual
+    validations:
+      required: true
+  - type: input
+    id: command
+    attributes:
+      label: Command
+      placeholder: npx tsx src/cli.ts run dep-upgrade --dry-run

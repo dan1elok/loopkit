@@ -1,0 +1,28 @@
+name: New loop
+description: Propose a vertical loop for a recurring job
+title: "loop: "
+labels: ["loop"]
+body:
+  - type: textarea
+    id: job
+    attributes:
+      label: The job
+      description: What recurring work should one iteration finish?
+      placeholder: Bump one dependency and leave the suite green.
+    validations:
+      required: true
+  - type: textarea
+    id: gate
+    attributes:
+      label: Gate
+      description: Mechanical check that rejects a bad iteration.
+      placeholder: npm test && npm run lint
+    validations:
+      required: true
+  - type: textarea
+    id: unit
+    attributes:
+      label: One iteration
+      description: The single verifiable unit of work.
+    validations:
+      required: true

@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Learn / loop patterns
+    url: https://github.com/dan1elok/loopkit/blob/main/learn/README.md
+    about: Read the pattern notes before opening a how-do-loops-work issue.
