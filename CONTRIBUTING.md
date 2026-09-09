@@ -18,3 +18,9 @@ npm run typecheck
 
 Keep the CLI small. New product behavior belongs in a loop or a gate,
 not a new subcommand, until we have a reason.
+
+## Questions
+
+Use [Discussions](https://github.com/dan1elok/loopkit/discussions) for
+"how do I write a loop?" and pattern questions. Open an issue only for
+a concrete bug or a new loop proposal.
