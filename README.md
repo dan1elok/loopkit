@@ -16,6 +16,7 @@ git history — not the chat.
 | `dep-upgrade` | Bump one dependency, fix the breakage, leave the suite green |
 | `docs-freshness` | Find one doc that drifted from the code and fix it |
 | `trend-watcher` | Write the monthly digest in `learn/trends/` |
+| `issue-triager` | Label one open issue and leave a next-step comment |
 
 More loops belong here. A loop without a gate is a retry storm.
 
@@ -64,7 +65,7 @@ The education hub lives in [`learn/`](learn/README.md):
 
 ## Status
 
-Public v0. Not on npm yet. The runner, three loops, and the learn
+Public v0. Not on npm yet. The runner, four loops, and the learn
 section are the surface.
 
 ## License
