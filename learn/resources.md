@@ -9,7 +9,6 @@ Short list. Quality over dump.
 
 ## Why gates matter
 
-Production agents fail as systems, not as models: silent regressions,
-retry storms, context poisoning. A loop that cannot fail closed will
-burn tokens and ship breakage. LoopKit treats gates as load-bearing,
-not optional.
+- [The 98% problem](https://labs.beconfident.app/papers/harness-engineering-survey)
+  — silent failure, retry storms, tool overload. Harness bugs, not model bugs.
+- LoopKit's own note: [Why gates exist](patterns/gates.md).

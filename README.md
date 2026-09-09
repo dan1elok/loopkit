@@ -2,19 +2,71 @@
 
 Vertical agentic loops with verification gates.
 
-You describe a recurring job. LoopKit runs an agent against it, iteration by
-iteration, and only accepts work that passes mechanical checks (tests, lint,
-typecheck, or a custom command). State lives on disk and in git — not in the
-chat window.
+Generic "run an agent until done" wrappers already exist. LoopKit ships
+**ready protocols for specific recurring jobs**, plus mechanical gates that
+reject work the tests do not accept.
 
-This repo is early. The first loop is a dependency-upgrade protocol.
+Each iteration starts with a fresh context. Memory is the filesystem and
+git history — not the chat.
 
-## Why
+## Bundled loops
 
-Generic "run an agent until done" wrappers already exist. What's missing is
-**ready-to-run loops for specific jobs**: bump deps and actually fix the
-breakage, hunt flaky tests, keep docs honest.
+| Loop | Job |
+|------|-----|
+| `dep-upgrade` | Bump one dependency, fix the breakage, leave the suite green |
+| `docs-freshness` | Find one doc that drifted from the code and fix it |
+| `trend-watcher` | Write the monthly digest in `learn/trends/` |
+
+More loops belong here. A loop without a gate is a retry storm.
+
+## Install
+
+```bash
+git clone <this-repo>
+cd loopkit
+npm install
+```
+
+Requires Node 20+.
+
+## Usage
+
+```bash
+npx tsx src/cli.ts list
+npx tsx src/cli.ts show dep-upgrade
+npx tsx src/cli.ts run dep-upgrade --dry-run
+npx tsx src/cli.ts run dep-upgrade --agent 'claude -p' --cwd /path/to/target-repo
+npx tsx src/cli.ts status --cwd /path/to/target-repo
+```
+
+`--dry-run` prints the prompt and gates. It does not call a model.
+
+`--agent` is any command that reads the prompt on stdin. Point it at
+Claude Code, Codex, Cursor's headless agent, or a stub for tests.
+
+State is written to `<cwd>/.loopkit/state.json`.
+
+## How a loop is defined
+
+A folder under `loops/<id>/LOOP.md`: YAML front matter + the prompt the
+agent sees every iteration. See `loops/README.md`.
+
+## Learn
+
+The education hub lives in [`learn/`](learn/README.md):
+
+- [The Ralph pattern](learn/patterns/ralph.md)
+- [Why gates exist](learn/patterns/gates.md)
+- [Curated resources](learn/resources.md)
+- [Monthly trend digest](learn/trends/)
+
+`trend-watcher` is meant to keep that digest honest.
 
 ## Status
 
-Sketching the loop format and the first protocol. Not a product yet.
+Local toolkit. Not published to npm yet. The runner, three loops, and
+the learn section are the v0 surface.
+
+## License
+
+MIT
